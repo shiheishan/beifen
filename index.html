@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>课程表</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #e5e5e5;
+      padding: 8px;
+      text-align: center;
+      min-width: 80px;
+    }
+    th {
+      background: #fafafa;
+    }
+    .course {
+      border-radius: 4px;
+      padding: 4px;
+      color: #fff;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .chinese { background: #f7a8a8; }
+    .math { background: #9ec1cf; }
+    .english { background: #b5e7a0; }
+    .physics { background: #c7ceea; }
+    .chemistry { background: #b2ebf2; }
+    .history { background: #f4e1d2; color: #333; }
+    .pe { background: #ffc4d6; }
+    td.today {
+      box-shadow: inset 0 0 0 2px #ffecb3;
+    }
+    th.today {
+      background: #ffecb3;
+    }
+  </style>
+</head>
+<body>
+  <h1>我的一周课程表</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>时间</th>
+        <th>周一</th>
+        <th>周二</th>
+        <th>周三</th>
+        <th>周四</th>
+        <th>周五</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>8:00-8:50</th>
+        <td><div class="course chinese">语文<br>@101</div></td>
+        <td><div class="course math">数学<br>@102</div></td>
+        <td><div class="course english">英语<br>@103</div></td>
+        <td><div class="course chinese">语文<br>@101</div></td>
+        <td><div class="course math">数学<br>@102</div></td>
+      </tr>
+      <tr>
+        <th>9:00-9:50</th>
+        <td><div class="course math">数学<br>@102</div></td>
+        <td><div class="course english">英语<br>@103</div></td>
+        <td><div class="course physics">物理<br>@201</div></td>
+        <td><div class="course math">数学<br>@102</div></td>
+        <td><div class="course english">英语<br>@103</div></td>
+      </tr>
+      <tr>
+        <th>10:10-11:00</th>
+        <td><div class="course physics">物理<br>@201</div></td>
+        <td><div class="course chemistry">化学<br>@202</div></td>
+        <td><div class="course math">数学<br>@102</div></td>
+        <td><div class="course english">英语<br>@103</div></td>
+        <td><div class="course chemistry">化学<br>@202</div></td>
+      </tr>
+      <tr>
+        <th>11:10-12:00</th>
+        <td><div class="course history">历史<br>@301</div></td>
+        <td><div class="course physics">物理<br>@201</div></td>
+        <td><div class="course chinese">语文<br>@101</div></td>
+        <td><div class="course chemistry">化学<br>@202</div></td>
+        <td><div class="course pe">体育<br>@操场</div></td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    const day = new Date().getDay();
+    if (day >= 1 && day <= 5) {
+      document.querySelectorAll('table tr').forEach(row => {
+        const cell = row.children[day];
+        if (cell) cell.classList.add('today');
+      });
+    }
+  </script>
+</body>
+</html>
