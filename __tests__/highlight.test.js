@@ -1,3 +1,4 @@
+codex/design-ui-for-class-schedule-website-zdvbim
 const { TextEncoder, TextDecoder } = require('util');
 global.TextEncoder = TextEncoder;
 global.TextDecoder = TextDecoder;
@@ -18,4 +19,11 @@ test('highlights cells of given weekday', () => {
   });
   // 其他列不应被高亮
   expect(rows[1].children[1].classList.contains('today')).toBe(false);
+const { highlight } = require('../src/highlight');
+
+test('adds highlight class to element', () => {
+  document.body.innerHTML = '<div id="item"></div>';
+  const element = document.getElementById('item');
+  highlight(element);
+  expect(element.classList.contains('highlight')).toBe(true);
 });

@@ -98,9 +98,18 @@
       </tr>
     </tbody>
   </table>
+codex/design-ui-for-class-schedule-website-zdvbim
   <script src="highlight.js"></script>
   <script>
     highlightCurrentDay();
+  <script>
+    const day = new Date().getDay();
+    if (day >= 1 && day <= 5) {
+      document.querySelectorAll('table tr').forEach(row => {
+        const cell = row.children[day];
+        if (cell) cell.classList.add('today');
+      });
+    }
   </script>
 </body>
 </html>
